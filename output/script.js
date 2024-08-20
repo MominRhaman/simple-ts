@@ -1,7 +1,17 @@
 "use strict";
-const userDetails = (id, user) => {
-    console.log(`User id is ${id}, name is ${user.name} and age is ${user.age}`);
-};
-const sayHello = (user) => {
-    console.log(`Hello ${user.age > 50 ? "Sir" : "Mr"} ${user.name}`);
-};
+class player {
+    constructor(n, a, c) {
+        this.name = n;
+        this.age = a;
+        this.country = c;
+    }
+    play() {
+        console.log(`${this.name} from ${this.country} is playing`);
+    }
+}
+const mashrafi = new player('Mashrafi', 40, 'Bangladesh');
+const Sakib = new player('Sakib', 38, 'Bangladesh');
+const players = [];
+players.push(Sakib);
+players.push(mashrafi);
+console.log(players);
