@@ -1,42 +1,48 @@
-// class player {
-//     name: string;
-//     age: number;
-//     country: string;
+// GENERICS
 
-//     constructor(n: string, a: number, c: string) {
-//         this.name = n;
-//         this.age = a;
-//         this.country = c;
-//     }
+const addID = <T extends {
+    name: string;
+    age: number;
 
-//     play() {
-//         console.log(`${this.name} from ${this.country} is playing`);
-//     }
-// }
+}>(obj: T) => {
+    let id = Math.floor(Math.random() * 100);
+    return { ...obj, id };
+};
 
-// const mashrafi = new player('Mashrafi', 40, 'Bangladesh');
-// const Sakib = new  player('Sakib', 38, 'Bangladesh');
+let user = addID({
+    name: "Mashrafi",
+    age: 40,
+    country: "Bangladesh"
+});
 
-// const players: player[] = [];
+// // let user = "Mashrafi";
 
-// players.push(Sakib);
-// players.push(mashrafi);
-//
+addID(user);
 
-import { player } from "./classes/Player.js"
-const mashrafi = new player('Mashrafi', 40, 'Bangladesh');
-const Sakib = new  player('Sakib', 38, 'Bangladesh');
+// ENUM
 
-// Sakib.name = "Mashrafi", 40, "Bangladesh";
-// Sakib.age = 40;
-// Sakib.country = 'England';
-// console.log(sakib.name);
+enum RType { SUCCESS, FAILURE, UNAUTHENTICATED, FORBIDDEN}
+interface APIResponse<T> {
+    status: number;
+    type: RType;
+    data: T;
+}
 
-console.log(Sakib.age);
-console.log(Sakib.country);
+const response1: APIResponse<string> = {
+    status: 200,
+    type: RType.UNAUTHENTICATED,
+    data: 'test'
+};
 
-const players: player[] = [];
+console.log(response1);
 
-players.push(Sakib);
-players.push(mashrafi);
+//==========================================
+
+// TUPLES
+
+let a = [3, 'hello', {p: 3}];
+
+let b: [number, string, object,] = [4, 'Hello', {t: 1}];      //fixed thakte hbe
+
+b.push();
 
