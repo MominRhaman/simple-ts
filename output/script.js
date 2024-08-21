@@ -1,19 +1,17 @@
 "use strict";
 // GENERICS
-// const addID = <T extends {
-//     name: string;
-//     age: number;
-// }>(obj: T) => {
-//     let id = Math.floor(Math.random() * 100);
-//     return { ...obj, id };
-// };
-// let user = addID({
-//     name: "Mashrafi",
-//     age: 40,
-//     country: "Bangladesh"
-// });
+const addID = (obj) => {
+    let id = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { id });
+};
+let user = addID({
+    name: "Mashrafi",
+    age: 40,
+    country: "Bangladesh"
+});
 // // let user = "Mashrafi";
-// addID(user);
+addID(user);
+// ENUM
 var RType;
 (function (RType) {
     RType[RType["SUCCESS"] = 0] = "SUCCESS";
@@ -27,3 +25,8 @@ const response1 = {
     data: 'test'
 };
 console.log(response1);
+//==========================================
+// TUPLES
+let a = [3, 'hello', { p: 3 }];
+let b = [4, 'Hello', { t: 1 }]; //fixed thakte hbe
+b.push();
